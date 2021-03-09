@@ -1,0 +1,34 @@
+
+<div class="books-container">
+  <ng-container *ngFor="let book of books$ | async">
+    <div class="book">
+      <mat-card>
+        <mat-card-header>
+          <div class="title">
+            <mat-card-title>{{book.volumeInfo?.title}}</mat-card-title>
+          </div>
+          <div class="logo">
+            <img src="{{book.volumeInfo?.imageLinks?.smallThumbnail}}}" alt="Book Image">
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="description" [innerHTML]="book.volumeInfo?.description"></p>
+          <div class="author-info">
+            <p class="bold">Written By</p>
+            <p class="author"><span *ngFor="let author of book.volumeInfo?.authors;let last=last">{{author}}<span *ngIf="!last"> and </span></span></p>
+          </div>
+
+          <div class="billing-details" *ngIf="billingDetails">
+            <p class="bold">Billing Address</p>
+            <p class="bold"> Name: <span>{{billingDetails.name}}</span></p>
+            <p class="bold"> Email: <span>{{billingDetails.email}}</span></p>
+            <p class="bold"> Phone: <span>{{billingDetails.phoneNumber}}</span></p>
+            <p class="bold"> Address: <span>{{billingDetails.address}}</span></p>
+
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,31 @@
+<form class="searchForm" name="searchForm">
+  <mat-form-field class="search">
+    <input name="bookSearch" matInput placeholder="Search in Library" [(ngModel)]="bookSearchString" required>
+    <mat-icon matSuffix (click)="searchBooks()">search</mat-icon>
+  </mat-form-field>
+</form>
+
+
+<div class="books-container">
+  <ng-container *ngFor="let book of books">
+    <div class="book" *ngIf="book">
+      <mat-card [routerLink]="['/books/details', book.id]">
+        <mat-card-header>
+          <div class="title">
+            <mat-card-title>{{book.volumeInfo?.title}}</mat-card-title>
+          </div>
+          <div class="logo">
+            <img src="{{book.volumeInfo?.imageLinks?.smallThumbnail}}}" alt="Book Image">
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="description" [innerHTML]="book.volumeInfo?.description"></p>
+          <div class="author-info">
+            <p class="writtenBy">Written By</p>
+            <p class="author"><span *ngFor="let author of book.volumeInfo?.authors;let last=last">{{author}}<span *ngIf="!last"> and </span></span></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

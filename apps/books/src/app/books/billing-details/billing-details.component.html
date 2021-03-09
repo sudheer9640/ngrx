@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="billing-container">
+    <div class="left-block">
+      <img src="assets/images/dollar.png"/>
+    </div>
+    <div class="right-block" *ngIf="billingDetails">
+      <form name="billingForm" #billingForm="ngForm" (ngSubmit)="billingForm.form.valid && addToCollection()">
+        <h3 class="title">Billing Info</h3>
+        <mat-form-field class="full-width">
+          <input matInput type="text" placeholder="Your name" name="name"  [(ngModel)]="billingDetails.name" required />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput type="text" placeholder="Your email" name="email" [(ngModel)]="billingDetails.email" required />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput type="text" placeholder="Your phone number" name="phoneNum" [(ngModel)]="billingDetails.phoneNumber" required />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Your address" name="address" [(ngModel)]="billingDetails.address" required></textArea>
+          <mat-hint align="start">Please enter your current address</mat-hint>
+        </mat-form-field>
+
+        <button type="submit" mat-stroked-button [ngClass]="{ 'valid': billingForm.form.valid, 'invalid': billingForm.form.invalid }"
+                [disabled]="billingForm.form.invalid">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>

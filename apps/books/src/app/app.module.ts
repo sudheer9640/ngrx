@@ -1,12 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {EffectsModule} from '@ngrx/effects';
+import { BooksModule } from './books/books.module';
+import { MaterialModule } from './material/material.module';
+import { SharedModule } from './shared/shared.module';
+import {StoreModule} from '@ngrx/store';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent
+  ],
+  imports: [
+    BrowserModule,
+    BooksModule,
+    AppRoutingModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}),
+    MaterialModule,
+    SharedModule,
+    NoopAnimationsModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

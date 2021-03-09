@@ -1,0 +1,48 @@
+
+@import "../../../styles/variable";
+.container {
+  mat-card{
+    margin: 0 15%;
+
+    mat-card-header {
+      display: flex;
+      .title {
+        flex-grow: 1;
+      }
+      .logo {
+        width: 8%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    mat-card-content {
+
+      h3.rating {
+        font-weight: 500;
+      }
+
+      .author-info {
+        margin-top: 60px;
+      }
+      .author-desc {
+        font-weight: bold;
+      }
+      .author {
+        font-weight: 500;
+      }
+    }
+
+    mat-card-actions {
+      button {
+        background-color: $magenta;
+        color: $white;
+      }
+
+      :not(:first-child) {
+        margin-left: 15px;
+      }
+    }
+  }
+}

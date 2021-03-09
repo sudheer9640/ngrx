@@ -1,0 +1,53 @@
+
+.container {
+  margin: 0 230px;
+
+  .billing-container {
+    display: flex;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
+    .left-block {
+      width: 40%;
+      margin: 5%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .right-block {
+      width: 55%;
+      background-color: #f0f8ff;
+    }
+
+    form {
+      padding: 10px;
+
+      .full-width {
+        width: 100%;
+      }
+
+      .title {
+        font-weight: bold;
+        text-align: center;
+      }
+
+      button {
+        border: none;
+        float: right;
+        height: 45px;
+      }
+
+      button.valid {
+        background-color: #E20074;
+        color: white;
+      }
+
+      button.invalid {
+        background-color: #dcdcdc;
+        color: #a9a9a9;
+      }
+    }
+  }
+
+}

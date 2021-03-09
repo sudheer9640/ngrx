@@ -1,0 +1,52 @@
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .book {
+    margin: 8% 10%;
+
+    mat-card {
+      mat-card-header {
+        display: flex;
+
+        .title {
+          flex-grow: 1;
+        }
+
+        .logo {
+          width: 10%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .description {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+      }
+
+      .author-info {
+        margin-top: 35px;
+      }
+
+      p.bold {
+        font-weight: bold;
+      }
+
+      span {
+        font-weight: normal;
+      }
+
+      .billing-details {
+        margin-top: 25px;
+      }
+    }
+  }
+}

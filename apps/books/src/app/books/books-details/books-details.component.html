@@ -1,0 +1,36 @@
+<div class="container" *ngIf="book">
+  <mat-card>
+    <mat-card-header>
+      <div class="title">
+        <mat-card-title>{{book.volumeInfo?.title}}</mat-card-title>
+      </div>
+      <div class="logo">
+        <img src="{{book.volumeInfo?.imageLinks?.smallThumbnail}}}" alt="Photo of a Shiba Inu">
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <h3 class="rating" *ngIf="book.volumeInfo?.averageRating">Rating: <span *ngFor="let rating of [].constructor(book.volumeInfo?.averageRating)">
+        <mat-icon color="accent">star</mat-icon>
+      </span></h3>
+      <div class="book-basic-info">
+        <p><span>Publisher: </span> {{book.volumeInfo?.publisher}}</p>
+        <p><span>Page Count: </span>{{book.volumeInfo?.pageCount}}</p>
+        <p><span>Language:</span> {{book.volumeInfo?.language}}</p>
+      </div>
+
+      <p [innerHTML]="book.volumeInfo?.description"></p>
+
+      <div class="author-info">
+        <h3 class="author-desc">Written By</h3>
+        <h4 class="author">
+          <span *ngFor="let author of book.volumeInfo?.authors;let last=last">{{author}}<span *ngIf="!last"> and </span></span>
+        </h4>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="addToCart()">ADD TO CART</button>
+      <button mat-button color="primary" [routerLink]="['/books/buyNow', book.id]" >BUY</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
