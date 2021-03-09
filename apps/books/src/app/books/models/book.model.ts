@@ -8,7 +8,8 @@ export interface Book {
     averageRatingPercentage?: number;
     description: string;
     imageLinks: {
-      smallThumbnail: string
+      smallThumbnail: string;
+      thumbnail: string;
     },
     language: string;
     pageCount: number;

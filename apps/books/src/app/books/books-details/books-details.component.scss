@@ -1,16 +1,19 @@
-
 @import "../../../styles/variable";
+
 .container {
-  mat-card{
+  mat-card {
     margin: 0 15%;
 
     mat-card-header {
       display: flex;
+
       .title {
         flex-grow: 1;
       }
+
       .logo {
         width: 8%;
+
         img {
           width: 100%;
         }
@@ -18,19 +21,24 @@
     }
 
     mat-card-content {
+       .rating-block {
+         .rating-icon {
+          vertical-align: middle;
+         }
+       }
 
-      h3.rating {
-        font-weight: 500;
+      .bold {
+        font-weight: bold;
+      }
+
+      table {
+        td:nth-child(2) {
+          padding-left: 20px;
+        }
       }
 
       .author-info {
-        margin-top: 60px;
-      }
-      .author-desc {
-        font-weight: bold;
-      }
-      .author {
-        font-weight: 500;
+        margin-top: 55px;
       }
     }
 

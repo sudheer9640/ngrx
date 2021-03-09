@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import { LoadBooks, SearchBook } from '../store/book.actions';
+import { LoadBooks, SearchBook } from '../state/book.actions';
 import { BooksSearchComponent } from './books-search.component';
 import {SharedModule} from '../../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

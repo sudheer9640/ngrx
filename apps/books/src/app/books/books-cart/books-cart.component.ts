@@ -3,8 +3,8 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {Book} from '../models/book.model';
-import {BuyBook, RemoveFromCart} from '../store/book.actions';
-import { selectCartItems } from '../store/book.selector';
+import {BuyBook, RemoveFromCart} from '../state/book.actions';
+import { selectCartItems } from '../state/book.selector';
 
 @Component({
   selector: 'app-books-cart',

@@ -3,7 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
 import {BooksDetailsComponent} from './books-details.component';
 import {SharedModule} from '../../shared/shared.module';
-import {AddToCart} from '../store/book.actions';
+import {AddToCart} from '../state/book.actions';
 import {BooksCartComponent} from '../books-cart/books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
 

@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AddToCollection, GetBook, RemoveFromCart} from '../store/book.actions';
+import {AddToCollection, GetBook, RemoveFromCart} from '../state/book.actions';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import {Book} from '../models/book.model';
-import {BookState} from '../store/book.state';
+import {BookState} from '../state/book.state';
 import {BillingDetails} from '../models/billing-details.model';
-import { selectBookState } from '../store/book.selector';
+import { selectBookState } from '../state/book.selector';
 
 @Component({
   selector: 'app-billing-details',

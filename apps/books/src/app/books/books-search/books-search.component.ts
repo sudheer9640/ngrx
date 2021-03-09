@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import { Subscription} from 'rxjs';
 import {Book} from '../models/book.model';
-import {LoadBooks} from '../store/book.actions';
-import {selectBookState} from '../store/book.selector';
+import {LoadBooks} from '../state/book.actions';
+import {selectBookState} from '../state/book.selector';
 
 @Component({
   selector: 'app-books-search',
@@ -35,7 +35,7 @@ export class BooksSearchComponent implements OnInit, OnDestroy {
     }
     this.bookSearchString = this.bookSearchString.trim();
     this.store.dispatch(LoadBooks({key: this.bookSearchString}));
-    // this.store.dispatch(SearchBook({key: this.bookSearchString}));
+    // this.state.dispatch(SearchBook({key: this.bookSearchString}));
   }
 
   ngOnDestroy(): void {

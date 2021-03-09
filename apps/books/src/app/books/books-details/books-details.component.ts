@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
-import { AddToCart, GetBook, GetBookSuccess } from '../store/book.actions';
+import { AddToCart, GetBook, GetBookSuccess } from '../state/book.actions';
 import {Book} from '../models/book.model';
 import {Subscription} from 'rxjs';
-import {selectBook} from '../store/book.selector';
+import {selectBook} from '../state/book.selector';
 import { Utilities } from '../../shared/utilities';
 
 @Component({

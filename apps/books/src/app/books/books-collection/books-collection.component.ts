@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {Book} from '../models/book.model';
-import { selectBillingDetails, selectCollectionItems } from '../store/book.selector';
+import { selectBillingDetails, selectCollectionItems } from '../state/book.selector';
 import { BillingDetails } from '../models/billing-details.model';
 
 @Component({
