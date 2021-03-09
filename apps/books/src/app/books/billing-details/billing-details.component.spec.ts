@@ -19,7 +19,8 @@ describe('BillingDetailsComponent', () => {
       authors: ['test'],
       description: 'my test description',
       imageLinks: {
-        smallThumbnail: 'https://test.com'
+        smallThumbnail: 'https://test.com',
+        thumbnail: 'testthum.vcoms'
       },
       language: 'en',
       pageCount: 20,

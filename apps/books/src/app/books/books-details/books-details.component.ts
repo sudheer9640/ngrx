@@ -30,18 +30,15 @@ export class BooksDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.bookSubscription = this.store.select(selectBook).subscribe((book: Book) => {
       this.book = Utilities.nestedClone(book);
-      console.log(this.book)
+      // console.log(this.book)
       if (this.book && this.book.volumeInfo && this.book.volumeInfo?.averageRating) {
         const rating = this.book.volumeInfo?.averageRating;
         if (Utilities.isInt(rating)) {
           this.book.volumeInfo.averageRating = rating;
         } else {
-          console.log('float', this.book.volumeInfo?.averageRating, Math.floor(rating));
           this.book.volumeInfo.averageRating = Math.floor(rating);
-          console.log('float hey', this.book.volumeInfo.averageRating)
           const decimalPart = rating - Math.floor(rating);
           this.book.volumeInfo.averageRatingPercentage = Math.floor((decimalPart) * 100)
-          console.log(this.book.volumeInfo.averageRatingPercentage)
         }
       }
     });

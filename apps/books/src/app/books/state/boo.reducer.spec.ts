@@ -19,7 +19,8 @@ const mockBook: Book = {
     authors: ['test user'],
     description: 'test desc',
     imageLinks: {
-      smallThumbnail: 'test.com'
+      smallThumbnail: 'test.com',
+      thumbnail: 'testthumb.com'
     },
     language: 'en',
     pageCount: 10,

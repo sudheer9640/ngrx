@@ -1,15 +1,19 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {MockStore, provideMockStore} from '@ngrx/store/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {MockStore, provideMockStore } from '@ngrx/store/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {BooksCartComponent} from './books-cart.component';
 import {SharedModule} from '../../shared/shared.module';
-import {BuyBook, RemoveFromCart} from '../state/book.actions';
+import { RemoveFromCart} from '../state/book.actions';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import {BooksCartComponent} from './books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
 
 describe('BooksCartComponent', () => {
   let component: BooksCartComponent;
   let fixture: ComponentFixture<BooksCartComponent>;
   let store: MockStore;
+  let location: Location;
+
   const mockBook = {
     id: 'test',
     buying: true,
@@ -17,7 +21,8 @@ describe('BooksCartComponent', () => {
       authors: ['test'],
       description: 'my test description',
       imageLinks: {
-        smallThumbnail: 'https://test.com'
+        smallThumbnail: 'https://test.com',
+        thumbnail: 'testthumb.com'
       },
       language: 'en',
       pageCount: 20,
@@ -36,6 +41,12 @@ describe('BooksCartComponent', () => {
       billingDetails: {}
     }
   };
+
+  function advance() {
+    tick();
+    fixture.detectChanges();
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BooksCartComponent, BillingDetailsComponent],
@@ -50,26 +61,29 @@ describe('BooksCartComponent', () => {
       ]
     })
       .compileComponents();
+    location = TestBed.inject(Location);
+    store = TestBed.inject(MockStore);
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BooksCartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    store = TestBed.inject(MockStore);
     store.setState(initialState);
-    spyOn(store, 'dispatch').and.callFake(() => {
-    });
+    const router = TestBed.inject(Router);
+    fixture.ngZone.run(() => router.initialNavigation());
+    spyOn(store, 'dispatch').and.callFake(() => {});
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should buy book', () => {
+  it('should buy book', fakeAsync(() => {
     component.buy(initialState.books.selectedBook);
-    expect(store.dispatch).toHaveBeenCalledWith(BuyBook({book: initialState.books.selectedBook}));
-  });
+    advance();
+    expect (location.path()).toBe('/books/buyNow/test');
+  }));
 
   it('should remove book from cart', () => {
     component.remove(initialState.books.selectedBook.id);
