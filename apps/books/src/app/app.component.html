@@ -17,10 +17,10 @@
           Search
         </a>
         <a mat-list-item [routerLink]="'/books/cart'" (click)="mobileQuery.matches && snav.toggle()">
-          <mat-icon>shopping_cart</mat-icon>
+          <mat-icon matBadge="{{cartItemsLength}}"  matBadgeColor="primary" matBadgePosition="before">shopping_cart</mat-icon>
           Cart</a>
         <a mat-list-item [routerLink]="'/books/collection'" (click)="mobileQuery.matches && snav.toggle()">
-          <mat-icon>library_books</mat-icon>
+          <mat-icon  matBadge="{{collectionItemsLength}}" matBadgeColor="primary" matBadgePosition="before">library_books</mat-icon>
           My Collection</a>
       </mat-nav-list>
     </mat-sidenav>

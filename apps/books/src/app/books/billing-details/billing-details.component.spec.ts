@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { BillingDetailsComponent } from './billing-details.component';
 import { SharedModule } from '../../shared/shared.module';
-import {AddToCart, AddToCollection} from "../state/book.actions";
+import { AddToCollection} from "../state/book.actions";
 import {BooksCollectionComponent} from "../books-collection/books-collection.component";
 
 describe('BillingDetailsComponent', () => {
