@@ -13,20 +13,24 @@ import {selectBookState} from '../state/book.selector';
 export class BooksSearchComponent implements OnInit, OnDestroy {
 
   books: Book[] = [];
-  bookSearchString = '';
+  bookSearchString = <string>'';
   booksSubscription!: Subscription;
 
   constructor(private store: Store) {
   }
 
   ngOnInit(): void {
+    this.getPreviousSearchInfo();
+  }
+
+  getPreviousSearchInfo() {
     this.booksSubscription = this.store.select(selectBookState).subscribe((state: any) => {
       if (state) {
         this.books = [...state.list];
         // console.log(this.books)
         this.bookSearchString = state.searchKey;
       }
-      });
+    });
   }
 
   searchBooks(): void {

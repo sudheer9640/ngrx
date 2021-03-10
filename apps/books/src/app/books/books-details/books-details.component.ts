@@ -28,6 +28,10 @@ export class BooksDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getBookDetails();
+  }
+
+  getBookDetails() {
     this.bookSubscription = this.store.select(selectBook).subscribe((book: Book) => {
       this.book ={...book};
     });

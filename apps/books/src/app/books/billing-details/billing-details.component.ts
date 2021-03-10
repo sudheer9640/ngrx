@@ -30,7 +30,11 @@ export class BillingDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-   this.booksSubscription =  this.store.select(selectBookState).subscribe(((x: any) => {
+     this.getBillingDetails();
+  }
+
+  getBillingDetails() {
+    this.booksSubscription =  this.store.select(selectBookState).subscribe(((x: any) => {
       this.buyingBook = { ...x.selectedBook };
       this.billingDetails = { ...x.billingDetails };
     }));
