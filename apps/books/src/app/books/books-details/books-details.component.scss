@@ -24,6 +24,9 @@
        .rating-block {
          .rating-icon {
           vertical-align: middle;
+           mat-icon {
+             color: $gold;
+           }
          }
        }
 

@@ -11,8 +11,12 @@
     <mat-card-content>
       <div class="rating-block" *ngIf="book.volumeInfo?.averageRating">
         <h4 class="bold">Rating:
-          <span class="rating-icon" *ngFor="let r of [].constructor(book.volumeInfo?.averageRating)">
-        <mat-icon color="accent">star</mat-icon></span></h4>
+          <span class="rating-icon" *ngFor="let n of [0,1,2,3,4]">
+            <mat-icon *ngIf="book.volumeInfo?.averageRating - n <= 0">star_border</mat-icon>
+            <mat-icon *ngIf="book.volumeInfo?.averageRating - n > 0.5">star</mat-icon>
+            <mat-icon *ngIf="book.volumeInfo?.averageRating - n == 0.5">star_half</mat-icon>
+          </span>
+        </h4>
       </div>
       <div class="book-basic-info">
         <table>

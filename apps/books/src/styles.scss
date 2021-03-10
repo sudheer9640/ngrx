@@ -12,10 +12,10 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$booksApp-primary: mat-palette($mat-pink, A200, A100, A400);
+$booksApp-primary: mat-palette($mat-indigo);
 $booksApp-accent: mat-palette($mat-amber, 500, A400, A700);
-
 // The warn palette is optional (defaults to red).
+$booksApp-magenta: mat-palette($mat-pink, A200, A100, A400);
 $booksApp-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
@@ -23,8 +23,8 @@ $booksApp-warn: mat-palette($mat-red);
 $booksApp-theme: mat-light-theme((
   color: (
     primary: $booksApp-primary,
-    accent: $booksApp-accent,
-    warn: $booksApp-warn,
+    accent: $booksApp-magenta,
+    warn: $booksApp-warn
   )
 ));
 

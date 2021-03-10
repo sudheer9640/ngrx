@@ -18,7 +18,7 @@
 
     .right-block {
       width: 55%;
-      background-color: #f0f8ff;
+      background-color: #eeeeee;
     }
 
     form {
@@ -47,6 +47,10 @@
       button.invalid {
         background-color: #dcdcdc;
         color: #a9a9a9;
+      }
+
+      textarea {
+        height: 60px;
       }
     }
   }
