@@ -5,7 +5,7 @@ import { AddToCart, GetBook, GetBookSuccess } from '../state/book.actions';
 import {Book} from '../models/book.model';
 import {Subscription} from 'rxjs';
 import {selectBook} from '../state/book.selector';
-import { Utilities } from '../../shared/utilities';
+import { CommonUtilities } from '../../shared/utils/commonUtilities';
 
 @Component({
   selector: 'app-books-details',
@@ -29,11 +29,11 @@ export class BooksDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.bookSubscription = this.store.select(selectBook).subscribe((book: Book) => {
-      this.book = Utilities.nestedClone(book);
+      this.book = CommonUtilities.nestedClone(book);
       // console.log(this.book)
       if (this.book && this.book.volumeInfo && this.book.volumeInfo?.averageRating) {
         const rating = this.book.volumeInfo?.averageRating;
-        if (Utilities.isInt(rating)) {
+        if (CommonUtilities.isInt(rating)) {
           this.book.volumeInfo.averageRating = rating;
         } else {
           this.book.volumeInfo.averageRating = Math.floor(rating);

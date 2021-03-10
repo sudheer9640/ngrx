@@ -26,6 +26,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+   this.getSideNavItemsCount();
+  }
+
+  getSideNavItemsCount(): void {
     this.booksSubscription =  this.store.select(selectBookState).subscribe(((x: any) => {
       this.cartItemsLength = x.cartItems.length? x.cartItems.length: null;
       this.collectionItemsLength = x.collectionItems.length ? x.collectionItems.length: null ;
@@ -34,6 +38,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
+    if (this.booksSubscription) {
+    this.booksSubscription.unsubscribe();
+    }
   }
 
 }

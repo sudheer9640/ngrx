@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {EffectsModule} from '@ngrx/effects';
 import { BooksModule } from './books/books.module';
 import { MaterialModule } from './material/material.module';
@@ -9,7 +10,6 @@ import {StoreModule} from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     StoreModule.forRoot({}),
     MaterialModule,
     SharedModule,
-    NoopAnimationsModule
-  ],
+    BrowserAnimationsModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })

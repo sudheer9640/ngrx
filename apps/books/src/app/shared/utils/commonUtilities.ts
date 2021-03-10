@@ -1,4 +1,4 @@
-export class Utilities {
+export class CommonUtilities {
 
   static nestedClone = (obj) => {
     if (null == obj || 'object' != typeof obj) return obj;
@@ -6,7 +6,7 @@ export class Utilities {
     if (obj instanceof Array) {
       var copy = [];
       for (let i = 0, len = obj.length; i < len; i++) {
-        copy[i] = Utilities.nestedClone(obj[i]);
+        copy[i] = CommonUtilities.nestedClone(obj[i]);
       }
       return copy;
     }
@@ -14,7 +14,7 @@ export class Utilities {
     if (obj instanceof Object) {
       const copy = {};
       for (let attr in obj) {
-        if (obj.hasOwnProperty(attr)) copy[attr] = Utilities.nestedClone(obj[attr]);
+        if (obj.hasOwnProperty(attr)) copy[attr] = CommonUtilities.nestedClone(obj[attr]);
       }
       return copy;
     }

@@ -14,7 +14,7 @@
           <div class="title">
             <mat-card-title>{{book.volumeInfo?.title}}</mat-card-title>
           </div>
-          <div class="logo">
+          <div class="logo" *ngIf="book.volumeInfo?.imageLinks?.smallThumbnail">
             <img src="{{book.volumeInfo?.imageLinks?.smallThumbnail}}}" alt="Book Image">
           </div>
         </mat-card-header>

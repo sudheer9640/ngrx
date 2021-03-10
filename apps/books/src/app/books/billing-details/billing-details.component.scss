@@ -1,3 +1,4 @@
+@import "../../../styles/variable";
 
 .container {
   margin: 0 230px;
@@ -39,7 +40,7 @@
       }
 
       button.valid {
-        background-color: #E20074;
+        background-color: $magenta;
         color: white;
       }
 
