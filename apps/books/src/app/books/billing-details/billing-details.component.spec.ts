@@ -7,43 +7,13 @@ import { BillingDetailsComponent } from './billing-details.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AddToCollection} from "../state/book.actions";
 import {BooksCollectionComponent} from "../books-collection/books-collection.component";
+import { mockStoreInitialState2 } from '../../testUtils/test.util';
 
 describe('BillingDetailsComponent', () => {
   let component: BillingDetailsComponent;
   let fixture: ComponentFixture<BillingDetailsComponent>;
   let store: MockStore;
-  const mockBook = {
-    id: 'test',
-    buying: true,
-    volumeInfo: {
-      authors: ['test'],
-      description: 'my test description',
-      imageLinks: {
-        smallThumbnail: 'https://test.com',
-        thumbnail: 'testthum.vcoms'
-      },
-      language: 'en',
-      pageCount: 20,
-      publisher: 'test publisher',
-      title: 'test title'
-    }
-  };
-  const initialState = {
-    books: {
-      list: [],
-      cartItems: [],
-      selectedBook: mockBook,
-      collectionItems: [],
-      searchKey: '',
-      loaded: false,
-      billingDetails: {
-        name: 'test',
-        email: 'test@gmail.com',
-        phoneNumber: 99999999999,
-        address: 'test address'
-      }
-    }
-  };
+  const initialState = mockStoreInitialState2;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

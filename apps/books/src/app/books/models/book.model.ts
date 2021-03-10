@@ -5,7 +5,6 @@ export interface Book {
   volumeInfo: {
     authors: string[];
     averageRating?: number;
-    averageRatingPercentage?: number;
     description: string;
     imageLinks: {
       smallThumbnail: string;

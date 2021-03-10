@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import {BooksCartComponent} from './books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
+import { mockStoreInitialState2 ,mockBook } from '../../testUtils/test.util';
 
 describe('BooksCartComponent', () => {
   let component: BooksCartComponent;
@@ -14,38 +15,12 @@ describe('BooksCartComponent', () => {
   let store: MockStore;
   let location: Location;
 
-  const mockBook = {
-    id: 'test',
-    buying: true,
-    volumeInfo: {
-      authors: ['test'],
-      description: 'my test description',
-      imageLinks: {
-        smallThumbnail: 'https://test.com',
-        thumbnail: 'testthumb.com'
-      },
-      language: 'en',
-      pageCount: 20,
-      publisher: 'test publisher',
-      title: 'test title'
-    }
-  };
-  const initialState = {
-    books: {
-      list: [],
-      cartItems: [],
-      selectedBook: mockBook,
-      collectionItems: [],
-      searchKey: '',
-      loaded: false,
-      billingDetails: {}
-    }
-  };
+  const initialState = mockStoreInitialState2;
 
-  function advance() {
+  const advance = () => {
     tick();
     fixture.detectChanges();
-  }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

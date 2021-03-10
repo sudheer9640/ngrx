@@ -9,6 +9,7 @@ import {BooksCartComponent} from '../books-cart/books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
 import {BooksDetailsComponent} from './books-details.component';
 import { BooksComponent } from '../books.component';
+import { mockStoreInitialState2 } from '../../testUtils/test.util';
 
 describe('BooksDetailsComponent', () => {
   let component: BooksDetailsComponent;
@@ -16,33 +17,7 @@ describe('BooksDetailsComponent', () => {
   let store: MockStore;
   let location: Location;
 
-  const mockBook = {
-    id: 'test',
-    buying: true,
-    volumeInfo: {
-      authors: ['test'],
-      description: 'my test description',
-      imageLinks: {
-        smallThumbnail: 'https://test.com',
-        thumbnail: 'testthumb.com'
-      },
-      language: 'en',
-      pageCount: 20,
-      publisher: 'test publisher',
-      title: 'test title'
-    }
-  };
-  const initialState = {
-    books: {
-      list: [],
-      cartItems: [],
-      selectedBook: mockBook,
-      collectionItems: [],
-      searchKey: '',
-      loaded: false,
-      billingDetails: {}
-    }
-  };
+  const initialState = mockStoreInitialState2;
 
   function advance() {
     tick();

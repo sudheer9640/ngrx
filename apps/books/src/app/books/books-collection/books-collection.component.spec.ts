@@ -3,22 +3,13 @@ import {MockStore, provideMockStore} from '@ngrx/store/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import { BooksCollectionComponent } from './books-collection.component';
 import {SharedModule} from '../../shared/shared.module';
+import { mockStoreInitialState } from '../../testUtils/test.util';
 
 describe('BooksCollectionComponent', () => {
   let component: BooksCollectionComponent;
   let fixture: ComponentFixture<BooksCollectionComponent>;
   let store: MockStore;
-  const initialState = {
-    books: {
-      list: [],
-      cartItems: [],
-      selectedBook: {},
-      collectionItems: [],
-      searchKey: '',
-      loaded: false,
-      billingDetails: {}
-    }
-  };
+  const initialState = mockStoreInitialState;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
