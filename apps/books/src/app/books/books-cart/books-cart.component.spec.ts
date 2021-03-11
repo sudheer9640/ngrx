@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import {BooksCartComponent} from './books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
-import { mockStoreInitialState2 ,mockBook } from '../../testUtils/test.util';
+import { mockStoreInitialState2 } from '../../testHelpers/test.helper';
 
 describe('BooksCartComponent', () => {
   let component: BooksCartComponent;
@@ -47,7 +47,7 @@ describe('BooksCartComponent', () => {
     store.setState(initialState);
     const router = TestBed.inject(Router);
     fixture.ngZone.run(() => router.initialNavigation());
-    spyOn(store, 'dispatch').and.callFake(() => {});
+    spyOn(store, 'dispatch').and.callFake(() => { return; });
   });
 
   it('should create', () => {

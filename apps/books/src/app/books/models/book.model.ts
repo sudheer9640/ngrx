@@ -1,5 +1,4 @@
-
-export interface Book {
+export class Book {
   id: string;
   buying: boolean;
   volumeInfo: {
@@ -9,10 +8,27 @@ export interface Book {
     imageLinks: {
       smallThumbnail: string;
       thumbnail: string;
-    },
+    };
     language: string;
     pageCount: number;
     publisher: string;
     title: string;
   };
+  constructor() {
+    this.id = '';
+    this.buying = false;
+    this.volumeInfo = {
+      authors: [''],
+      averageRating: 0,
+      description: '',
+      imageLinks: {
+        smallThumbnail: '',
+        thumbnail: '',
+      },
+      language: '',
+      pageCount: 0,
+      publisher: '',
+      title: '',
+    };
+  }
 }

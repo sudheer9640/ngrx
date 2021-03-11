@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ChangeDetectorRef} from '@angular/core';
-import {MockStore, provideMockStore} from '@ngrx/store/testing';
+import { ChangeDetectorRef } from '@angular/core';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import { mockStoreInitialState } from './testUtils/test.util';
+import { mockStoreInitialState } from './testHelpers/test.helper';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -14,18 +14,12 @@ describe('AppComponent', () => {
   const initialState = mockStoreInitialState;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        RouterTestingModule,
-        SharedModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [BrowserAnimationsModule, RouterTestingModule, SharedModule],
+      declarations: [AppComponent],
       providers: [
         { provide: ChangeDetectorRef, useValue: {} },
-        provideMockStore({ initialState })
-      ]
+        provideMockStore({ initialState }),
+      ],
     }).compileComponents();
     store = TestBed.inject(MockStore);
     store.setState(initialState);
@@ -46,10 +40,8 @@ describe('AppComponent', () => {
     expect(component.ngOnInit).toBeTruthy();
   });
 
-
   it('should unsubscribe', () => {
     component.ngOnDestroy();
     expect(component.ngOnDestroy).toBeTruthy();
   });
-
 });

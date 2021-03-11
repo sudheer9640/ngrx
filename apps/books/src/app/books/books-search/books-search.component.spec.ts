@@ -35,7 +35,7 @@ describe('BooksSearchComponent', () => {
     })
     .compileComponents();
     store = TestBed.inject(MockStore);
-    spyOn(store, 'dispatch').and.callFake(() => {});
+    spyOn(store, 'dispatch').and.callFake(() => { return; });
   });
 
   beforeEach(() => {

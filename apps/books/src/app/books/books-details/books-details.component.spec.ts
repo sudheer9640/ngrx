@@ -9,7 +9,7 @@ import {BooksCartComponent} from '../books-cart/books-cart.component';
 import {BillingDetailsComponent} from '../billing-details/billing-details.component';
 import {BooksDetailsComponent} from './books-details.component';
 import { BooksComponent } from '../books.component';
-import { mockStoreInitialState2 } from '../../testUtils/test.util';
+import { mockStoreInitialState2 } from '../../testHelpers/test.helper';
 
 describe('BooksDetailsComponent', () => {
   let component: BooksDetailsComponent;
@@ -50,7 +50,7 @@ describe('BooksDetailsComponent', () => {
     store.setState(initialState);
     const router = TestBed.inject(Router);
     fixture.ngZone.run(() => router.initialNavigation());
-    spyOn(store, 'dispatch').and.callFake(() => {});
+    spyOn(store, 'dispatch').and.callFake(() => { return; });
     fixture.detectChanges();
   }));
 
@@ -65,6 +65,4 @@ describe('BooksDetailsComponent', () => {
     expect(location.path()).toBe('/books/cart');
   }));
 
-
 });
-

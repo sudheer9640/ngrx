@@ -1,6 +1,6 @@
-import {createAction, props} from '@ngrx/store';
-import {Book} from '../models/book.model';
-import {BillingDetails} from '../models/billing-details.model';
+import { createAction, props } from '@ngrx/store';
+import { Book } from '../models/book.model';
+import { BillingDetails } from '../models/billing-details.model';
 
 export const GetBook = createAction(
   '[Book] - Get Book',
@@ -19,7 +19,7 @@ export const LoadBooks = createAction(
 
 export const LoadBooksSuccess = createAction(
   '[Book] - Load Books Success',
-  props<{ books: Book[], key: string }>()
+  props<{ books: Book[]; key: string }>()
 );
 
 export const AddToCart = createAction(
@@ -39,5 +39,5 @@ export const BuyBook = createAction(
 
 export const AddToCollection = createAction(
   '[Book] - Add To Collection',
-  props<{ book: Book, billingDetails: BillingDetails }>()
+  props<{ book: Book; billingDetails: BillingDetails }>()
 );

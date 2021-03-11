@@ -5,9 +5,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { BillingDetailsComponent } from './billing-details.component';
 import { SharedModule } from '../../shared/shared.module';
-import { AddToCollection} from "../state/book.actions";
-import {BooksCollectionComponent} from "../books-collection/books-collection.component";
-import { mockStoreInitialState2 } from '../../testUtils/test.util';
+import { AddToCollection} from '../state/book.actions';
+import {BooksCollectionComponent} from '../books-collection/books-collection.component';
+import { mockStoreInitialState2 } from '../../testHelpers/test.helper';
 
 describe('BillingDetailsComponent', () => {
   let component: BillingDetailsComponent;
@@ -31,7 +31,7 @@ describe('BillingDetailsComponent', () => {
     })
     .compileComponents();
     store = TestBed.inject(MockStore);
-    spyOn(store, 'dispatch').and.callFake(() => {});
+    spyOn(store, 'dispatch').and.callFake(() => { return });
   });
 
   beforeEach(() => {

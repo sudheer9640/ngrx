@@ -5,10 +5,9 @@ import {
   AddToCart,
   AddToCollection,
   BuyBook,
-  GetBook,
   GetBookSuccess,
   LoadBooksSuccess,
-  RemoveFromCart
+  RemoveFromCart,
 } from './book.actions';
 import { BillingDetails } from '../models/billing-details.model';
 
@@ -20,19 +19,19 @@ const mockBook: Book = {
     description: 'test desc',
     imageLinks: {
       smallThumbnail: 'test.com',
-      thumbnail: 'testthumb.com'
+      thumbnail: 'testthumb.com',
     },
     language: 'en',
     pageCount: 10,
     publisher: 'test pub',
-    title: 'test title'
-  }
+    title: 'test title',
+  },
 };
 
 describe('books reducer', () => {
   it('should return the default state', () => {
     const action = {
-      type: 'Unknown'
+      type: 'Unknown',
     };
     const state = booksReducer(initialState, action);
     expect(state).toBe(initialState);
@@ -77,12 +76,14 @@ describe('books reducer', () => {
       name: 'test name',
       email: 'test email',
       address: 'sg nagar',
-      phoneNumber: 9545594986
+      phoneNumber: 9545594986,
     };
-    const action = AddToCollection({ book: newState,billingDetails: billingDetails });
+    const action = AddToCollection({
+      book: newState,
+      billingDetails: billingDetails,
+    });
     const state = booksReducer(initialState, action);
     expect(state.collectionItems).toEqual([mockBook]);
     expect(state.billingDetails).toEqual(billingDetails);
   });
-
 });

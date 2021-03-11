@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  get(apiEndPoint: string): Observable<any> {
+  get(apiEndPoint: string) {
     return this.http.get(apiEndPoint);
   }
 
-  post(apiEndPoint: string, payLoad: object): Observable<any> {
+  post(apiEndPoint: string, payLoad: any) {
     return this.http.post(apiEndPoint, payLoad);
   }
 }

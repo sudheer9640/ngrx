@@ -1,4 +1,3 @@
-
 export const mockBook = {
   id: 'test',
   buying: true,
@@ -7,13 +6,13 @@ export const mockBook = {
     description: 'my test description',
     imageLinks: {
       smallThumbnail: 'https://test.com',
-      thumbnail: 'testthumb.com'
+      thumbnail: 'testthumb.com',
     },
     language: 'en',
     pageCount: 20,
     publisher: 'test publisher',
-    title: 'test title'
-  }
+    title: 'test title',
+  },
 };
 
 export const mockStoreInitialState = {
@@ -24,8 +23,8 @@ export const mockStoreInitialState = {
     collectionItems: [],
     searchKey: '',
     loaded: false,
-    billingDetails: {}
-  }
+    billingDetails: {},
+  },
 };
 
 export const mockStoreInitialState2 = {
@@ -40,7 +39,7 @@ export const mockStoreInitialState2 = {
       name: 'test name',
       email: 'test email',
       phoneNumber: 9999999899,
-      address: 'testaddress'
-    }
-  }
+      address: 'testaddress',
+    },
+  },
 };
