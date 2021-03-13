@@ -22,7 +22,7 @@ describe('HttpService', () => {
     (httpMock: HttpTestingController, httpService: HttpService) => {
       const response = { test: {} };
       httpService
-        .post(apiEndPoints.BOOK_DETAILS, { userId: 'sadfasd' })
+        .post(apiEndPoints.BOOK_DETAILS, { bookId: 'sadfasd' })
         .subscribe((res) => {
           expect(res).toBeTruthy();
         });

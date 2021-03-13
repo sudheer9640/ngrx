@@ -1,29 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Book } from '../models/book.model';
-import {
-  selectBillingDetails,
-  selectCollectionItems,
-} from '../state/book.selector';
+import { selectBookState } from '../state/book.selector';
 import { BillingDetails } from '../models/billing-details.model';
+import { BookState } from '../state/book.state';
 
 @Component({
   selector: 'books-demo-app-books-collection',
   templateUrl: './books-collection.component.html',
   styleUrls: ['./books-collection.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class BooksCollectionComponent implements OnInit {
-  books$: Observable<Book[]>;
+  books: Book[] = [];
   billingDetails = <BillingDetails>{};
 
-  constructor(private store: Store) {
-    this.books$ = store.select(selectCollectionItems);
-  }
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.store.select(selectBillingDetails).subscribe((b) => {
-      this.billingDetails = b;
+    this.store.select(selectBookState).subscribe((state: BookState) => {
+      this.books = state.collectionItems;
+      this.billingDetails = state.billingDetails;
     });
   }
 }

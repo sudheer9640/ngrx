@@ -23,7 +23,7 @@ const bookReducer = createReducer(
   })),
   on(AddToCart, (state, { book }) => ({
     ...state,
-    cartItems: [...state.cartItems, book],
+    cartItems: !state.cartItems.includes(book) ? [...state.cartItems, book]: [...state.cartItems],
   })),
   on(RemoveFromCart, (state, { bookId }) => ({
     ...state,
@@ -39,3 +39,6 @@ const bookReducer = createReducer(
 
 export const booksReducer = (state: BookState, action: Action) =>
   bookReducer(state, action);
+
+
+//    cartItems: [...state.cartItems, book],

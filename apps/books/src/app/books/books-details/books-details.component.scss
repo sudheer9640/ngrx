@@ -1,9 +1,8 @@
 @import "../../../styles/variable";
 
 .container {
+  padding: 0 10%;
   mat-card {
-    margin: 0 15%;
-
     mat-card-header {
       display: flex;
 

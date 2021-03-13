@@ -5,6 +5,7 @@ import { LoadBooks } from '../state/book.actions';
 import { BooksSearchComponent } from './books-search.component';
 import {SharedModule} from '../../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BooksListComponent } from '../books-list/books-list.component';
 
 describe('BooksSearchComponent', () => {
   let component: BooksSearchComponent;
@@ -23,7 +24,7 @@ describe('BooksSearchComponent', () => {
   };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BooksSearchComponent ],
+      declarations: [ BooksSearchComponent, BooksListComponent ],
       imports: [
         BrowserAnimationsModule,
         RouterTestingModule,

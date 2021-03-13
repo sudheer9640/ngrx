@@ -3,7 +3,8 @@ import {MockStore, provideMockStore} from '@ngrx/store/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import { BooksCollectionComponent } from './books-collection.component';
 import {SharedModule} from '../../shared/shared.module';
-import { mockStoreInitialState } from '../../testUtils/test.util';
+import { mockStoreInitialState } from '../../testHelpers/test.helper';
+import { BooksListComponent } from '../books-list/books-list.component';
 
 describe('BooksCollectionComponent', () => {
   let component: BooksCollectionComponent;
@@ -13,7 +14,7 @@ describe('BooksCollectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BooksCollectionComponent ],
+      declarations: [ BooksCollectionComponent,BooksListComponent ],
       imports: [
         RouterTestingModule,
         SharedModule
@@ -36,4 +37,11 @@ describe('BooksCollectionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should get collection items on load', () => {
+    component.ngOnInit();
+    expect(component.books).toEqual(initialState.books.collectionItems);
+  });
+
 });

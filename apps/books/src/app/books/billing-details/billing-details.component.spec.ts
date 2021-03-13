@@ -8,6 +8,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { AddToCollection} from '../state/book.actions';
 import {BooksCollectionComponent} from '../books-collection/books-collection.component';
 import { mockStoreInitialState2 } from '../../testHelpers/test.helper';
+import { BooksListComponent } from '../books-list/books-list.component';
 
 describe('BillingDetailsComponent', () => {
   let component: BillingDetailsComponent;
@@ -17,11 +18,11 @@ describe('BillingDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BillingDetailsComponent, BooksCollectionComponent ],
+      declarations: [ BillingDetailsComponent, BooksCollectionComponent, BooksListComponent ],
       imports: [
         BrowserAnimationsModule,
         RouterTestingModule.withRoutes([
-          {path: 'books/collection', component: BooksCollectionComponent}
+          {path: 'booksCollection', component: BooksCollectionComponent}
         ]),
         SharedModule,
       ],

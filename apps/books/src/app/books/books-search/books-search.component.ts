@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Book } from '../models/book.model';
@@ -10,11 +10,12 @@ import { BookState } from '../state/book.state';
   selector: 'books-demo-app-books-search',
   templateUrl: './books-search.component.html',
   styleUrls: ['./books-search.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class BooksSearchComponent implements OnInit, OnDestroy {
-  books: Book[] = [];
-  bookSearchString = <string>'';
-  booksSubscription!: Subscription;
+  books: Book[];
+  bookSearchString;
+  booksSubscription: Subscription;
 
   constructor(private store: Store) {}
 
@@ -27,8 +28,7 @@ export class BooksSearchComponent implements OnInit, OnDestroy {
       .select(selectBookState)
       .subscribe((state: BookState) => {
         if (state) {
-          this.books = [...state.list];
-          // console.log(this.books)
+          this.books = state.list;
           this.bookSearchString = state.searchKey;
         }
       });

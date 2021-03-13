@@ -49,7 +49,7 @@ export class BillingDetailsComponent implements OnInit, OnDestroy {
     if (this.buyingBook) {
       this.store.dispatch(AddToCollection({ book: this.buyingBook, billingDetails: this.billingDetails }));
       this.store.dispatch(RemoveFromCart({ bookId: this.buyingBook.id }));
-      this.router.navigate(['/books/collection']);
+      this.router.navigate(['/booksCollection']);
     }
   }
 

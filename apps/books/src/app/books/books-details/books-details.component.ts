@@ -41,7 +41,6 @@ export class BooksDetailsComponent implements OnInit, OnDestroy {
 
   addToCart(): void {
     this.store.dispatch(AddToCart({ book: this.book }));
-    this.router.navigate(['/books/cart']);
   }
 
   ngOnDestroy(): void {
